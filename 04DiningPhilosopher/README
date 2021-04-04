@@ -1,0 +1,76 @@
+#######################
+Name: Jingjing Liu 
+#######################
+
+
+#######################
+# DINING PHILOSOPHERS #
+#######################
+
+This canvas contains the following files:
+a. README
+b. makefile
+c. include/philosophers.h
+d. src/dp_simulator.c
+e. src/philosophers-no-concurrency.c
+f. src/philosophers-bad.c
+g. src/philosophers.c
+
+(a) is the file you're reading right now.
+It contains explanations about how to work with this canvas.
+
+(b) is the file that regroups all of your compilation/run commands.
+        NB_PHILS    => sets the number of philosophers in the simulation
+        NB_MEALS    => sets the number of meals per philosopher in the simulation
+        build   => compiles your solution
+        run     => runs your solution
+                    You can terminate the execution of your program at any point with ctrl-C
+                    ctrl-C will kill all running processes, and trigger the cleanup function
+        clean   => deletes all the temporary files, including the log of the last execution
+        demos   => compiles two
+
+(c) and (d) provide the backbone of the simulation.
+(c) declares the constants, structures, and functions to build a simulation.
+Set the number of philosophers and the number of meals by modifying NPHIL and MEALS.
+(d) implements the simulator.
+
+(e) and (f) show bad examples of how to code a synchronization among philosophers.
+(e) forces philosophers to eat one at a time.
+(f) does something uncool that you have to explain below.
+NOTE: the default number of meals and philosophers for these examples is different; you can change these values in philosophers.h
+
+(g) is the canvas for your solution.
+
+
+#######################
+#       ANSWER        #
+#######################
+Write your explanation about what may happen when all philosophers are hungry simultaneously, and each of them picks up the chopstick to their left before picking up the chopstick to the right.
+
+Answer: 
+        When all philosophers are hungry simultaneously and each of them picks up the chopstick to 
+        their left before picking up the chopstick to the right, there will be a deadlock. 
+        All of them will be holding the left chopstick and waiting for the right one to become 
+        available, while the right chopstick will never become available since the philosopher's 
+        neighbour is holding it. 
+        Although the code in philosophers-bad.c makes sure that only one philosopher can hold a 
+        chopstick at a time, it produces the problem of deadlock. 
+
+#######################
+#      SOLUTION       #
+#######################
+Write a detailed explanation of your solution to the dining philosophers problem. 
+
+Asnwer: 
+        My solution utilizes the multiplex semaphore. 
+        If there are N philosophers at the table and they picked up the left chopstick at the same 
+        time, there will be a problem of deadlock since they will be waiting indefinitely for the 
+        right chopstick to become available. 
+        In order to solve this issue, I used the multiplex semaphore and initialize it to N-1 so that 
+        only N-1 philosophers are allowed on the table at the same time. In this case, there will be 
+        one extra chopstick so that at least one philospher will be able to start eating and finish 
+        and make the chopstick available. The philosophers will not be waiting for another chopstick 
+        to be available forever. This solves the deadlock problem. And the Nth philosopher will wait 
+        the Multiplex semaphore becomes available. 
+
+
