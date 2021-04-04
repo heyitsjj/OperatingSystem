@@ -1,0 +1,44 @@
+
+First Name: Jingjing 
+
+Last Name: Liu 
+
+=======================================================================================
+Files submitted:
+
+converters.h
+src/1.c
+src/2.c
+src/3.c
+
+=======================================================================================
+Targets in the Makefile:
+
+Q1, Q2, Q3
+
+
+=======================================================================================
+Comments:
+
+None. 
+
+=======================================================================================
+Textual answers: 
+
+Question1:
+Original code output is
+i = 0
+j = 0
+i = 1
+i = 2
+j = 1
+j = 2
+
+The first while loop created 3 child processes, say c0, c1, c2
+c0 did not create any grand child process
+c1 created 1 child processes in inner while loop, gc0
+c2 created 2 child processes in inner while loop, gc1 and gc2
+so there are totally 6 child and grand child processes are created.
+
+
+

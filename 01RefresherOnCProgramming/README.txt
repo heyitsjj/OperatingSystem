@@ -3,8 +3,6 @@ First Name: Jingjing
 
 Last Name: Liu
 
-NYU ID: jl9358
-
 =======================================================================================
 Files submitted: 
 
@@ -39,10 +37,3 @@ list_impl.o into the library libstack.a.
 
 
 =======================================================================================
-Textual answers: 
-
-Question 7:
-Traversing the entire list to determine the number of items is too expensive. Therefore, add a counter in 
-stack_list.c and a counter in fifo_list.c. Initialize the counter as equal to 0, and then increment it as 
-element is inserted and decrement it as element is poped or extracted from the list. 
-	
